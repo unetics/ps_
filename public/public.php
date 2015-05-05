@@ -41,19 +41,19 @@ function make_css() {
 		foreach($styles as $style) :
 			$parser->parseFile($style, '' );
 		endforeach;
-		$parser->parse( '@color: #4D926F; #header { color: @color; } h2 { color: @color; }' );
-		$parser->ModifyVars( array('nice-grey'=>'#333') );
 		$parser->compileCss(ps_dir.'public/assets/css/main.css');
 	}catch(Exception $e){
 		$error_message = $e->getMessage();
 		log_me($error_message);
 	}
-	add_action( 'wp_enqueue_scripts', 'load_css' );
 }
-
-add_action( 'init', 'make_css' );
+add_action( 'rebuild', 'make_css' );
 
 function load_css() {
         wp_register_style( 'main_css', ps_url.'public/assets/css/main.css', false, ps_ver );
         wp_enqueue_style( 'main_css' );
 }
+add_action( 'wp_enqueue_scripts', 'load_css' );
+
+
+
