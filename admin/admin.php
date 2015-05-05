@@ -82,3 +82,19 @@ function rebuild_callback() {
 	wp_die(); // this is required to terminate immediately and return a proper response
 }
 add_action( 'wp_ajax_rebuild', 'rebuild_callback' );
+
+
+function create_ps_menu() {
+	global $wp_admin_bar;
+
+	$menu_id = 'ps_';
+	$wp_admin_bar->add_menu(array('id' => $menu_id, 'title' => 'ps_'));
+	$wp_admin_bar->add_menu(array(
+							'parent' => $menu_id, 
+							'title' => 'rebuild css', 
+							'id' => 'rebuild-css', 
+							'href' => 'javascript:void(0);', 
+							'meta' => array('onclick' => 'rebuild()')));
+	}
+add_action('admin_bar_menu', 'create_ps_menu', 2000);
+
