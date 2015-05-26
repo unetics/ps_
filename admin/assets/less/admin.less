@@ -12,3 +12,73 @@
   border-color: lighten(@base, 30%);
   div { .box-shadow(0 0 5px, 30%) }
 }
+
+#sow-widgets-page .page-banner {
+  display: none !important;
+}
+
+// gallery admin
+.attachment.details .check div {
+	background-position: -60px 0;
+}
+
+.attachment.details .check:hover div {
+	background-position: -60px 0;
+}
+
+.gallery_images .details.attachment {
+	box-shadow: none;
+}
+
+.eig-metabox-sortable-placeholder {
+	background: #DFDFDF;
+}
+
+.gallery_images .attachment.details > div {
+	width: 150px;
+	height: 150px;
+	box-shadow: none;
+}
+
+.gallery_images .attachment-preview .thumbnail {
+	 cursor: move;
+}
+
+.attachment.details div:hover .check {
+	display:block;
+}
+
+.gallery_images:after,
+#gallery_images_container:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+
+.gallery_images > li {
+    float: left;
+    cursor: move;
+    margin: 0 20px 20px 0;
+}
+
+.gallery_images li.image img {
+    width: 150px;
+    height: auto;
+}
+li.add_gallery_images{
+  width: 25%;
+  box-sizing: border-box;
+  margin: 0;
+  a{
+  height: 150px;
+  border: dashed 4px #E0E0E0;
+  color: #656b70;
+  width: 150px;
+  box-sizing: border-box;
+  line-height: 1.5;
+  font-size: 90px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  margin: 8px;
+  &:hover{
+	  border-color: #63A7C8;
+  }
+  }
+  }

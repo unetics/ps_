@@ -1,5 +1,4 @@
 <?php
-		
 function ps_get_admin_styles() {
 	$styles = array(
 		ps_dir.'admin/assets/less/admin.less'
@@ -78,7 +77,7 @@ add_action( 'admin_footer', 'rebuild_javascript' );
 
 function rebuild_callback() {
 	do_action ( 'rebuild' );
-        echo 'css compiled';
+        log_me('css compiled');
 	wp_die(); // this is required to terminate immediately and return a proper response
 }
 add_action( 'wp_ajax_rebuild', 'rebuild_callback' );
@@ -98,3 +97,12 @@ function create_ps_menu() {
 	}
 add_action('admin_bar_menu', 'create_ps_menu', 2000);
 
+if ( ! function_exists( 'redux_disable_dev_mode_plugin' ) ) {
+    function redux_disable_dev_mode_plugin( $redux ) {
+        if ( $redux->args['opt_name'] != 'redux_demo' ) {
+            $redux->args['dev_mode'] = false;
+        }
+    }
+
+    add_action( 'redux/construct', 'redux_disable_dev_mode_plugin' );
+}
