@@ -31,6 +31,7 @@ function ps_get_styleVars() {
 		'menu-link-color-hover' 	=> $nav_options['menu-link-color']['hover'],
 		'menu-link-color-active' 	=> $nav_options['menu-link-color']['active'],
 		'box-shadow'				=> $nav_options['box-shadow'],
+		'top-level-font-size'		=> $nav_options['menu-typography']['font-size'],
 	);
 	return $vars;
 
