@@ -20,7 +20,7 @@
 						'container'         => 'div',
 						'container_class'   => 'collapse sm-navbar-collapse',
 						'container_id'      => 'supermenu-sm-navbar-collapse-mob',
-						'items_wrap'        => '<ul class="sm-nav sm-navbar-nav ' . $navbar_pos . ' animated sm-effect-' .$topmenu_link_effect . ' ' . $menu_items_amim . ' ' . $fixed_superside_icon . '">%3$s</ul>',
+						'items_wrap'        => '<ul class="sm-nav sm-navbar-nav  animated">%3$s</ul>',
 						'link_before'     => '<span class="menu-item-name">',
 						'link_after'      => '</span>',
 						'fallback_cb'       => 'sm_bootstrap_navwalker::fallback',
