@@ -106,3 +106,6 @@ if ( ! function_exists( 'redux_disable_dev_mode_plugin' ) ) {
 
     add_action( 'redux/construct', 'redux_disable_dev_mode_plugin' );
 }
+
+
+
