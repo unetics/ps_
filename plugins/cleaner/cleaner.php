@@ -80,3 +80,62 @@ add_action( 'admin_menu', 'remove_redux_menu',12 );
 function remove_redux_menu() {
     remove_submenu_page('tools.php','redux-about');
 }
+ /** remove wp logo in admin **/
+function annointed_admin_bar_remove() {
+        global $wp_admin_bar;
+
+        /* Remove their stuff */
+        $wp_admin_bar->remove_menu('wp-logo');
+}
+
+add_action('wp_before_admin_bar_render', 'annointed_admin_bar_remove', 0);
+
+function remove_admin_bar_links() {
+    global $wp_admin_bar;
+    $wp_admin_bar->remove_menu('wp-logo');          // Remove the WordPress logo
+    $wp_admin_bar->remove_menu('about');            // Remove the about WordPress link
+    $wp_admin_bar->remove_menu('wporg');            // Remove the WordPress.org link
+    $wp_admin_bar->remove_menu('documentation');    // Remove the WordPress documentation link
+    $wp_admin_bar->remove_menu('support-forums');   // Remove the support forums link
+    $wp_admin_bar->remove_menu('feedback');         // Remove the feedback link
+    $wp_admin_bar->remove_menu('site-name');        // Remove the site name menu
+    $wp_admin_bar->remove_menu('view-site');        // Remove the view site link
+//     $wp_admin_bar->remove_menu('updates');          // Remove the updates link
+    $wp_admin_bar->remove_menu('comments');         // Remove the comments link
+    $wp_admin_bar->remove_menu('new-content');      // Remove the content link
+    $wp_admin_bar->remove_menu('w3tc');             // If you use w3 total cache remove the performance link
+    $wp_admin_bar->remove_menu('wpseo-menu'); 
+//     $wp_admin_bar->remove_menu('my-account');       // Remove the user details tab
+}
+add_action( 'wp_before_admin_bar_render', 'remove_admin_bar_links' );
+
+function mytheme_admin_bar_render() {
+
+    global $wp_admin_bar;
+		// Add an option to visit the site.
+		$wp_admin_bar->add_menu( array(
+			'parent' => '',
+			'id'     => 'view-site',
+			'title'  => 'View Site',
+			'href'   => home_url( '/' ),
+			'meta' 	 => array( 'target' => '_blank', 'title' => 'view site' ),
+		) );
+		$wp_admin_bar->add_menu(array(
+			'parent' => $menu_id, 
+			'title' => '', 
+			'id' => 'rebuild-css', 
+			'href' => 'javascript:void(0);', 
+			'meta' => array('onclick' => 'rebuild()', 'title' => 'Rebuild CSS')));
+}
+
+add_action( 'wp_before_admin_bar_render', 'mytheme_admin_bar_render' );
+
+if ( ! function_exists( 'redux_disable_dev_mode_plugin' ) ) {
+    function redux_disable_dev_mode_plugin( $redux ) {
+        if ( $redux->args['opt_name'] != 'redux_demo' ) {
+            $redux->args['dev_mode'] = false;
+        }
+    }
+
+    add_action( 'redux/construct', 'redux_disable_dev_mode_plugin' );
+}

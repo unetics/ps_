@@ -59,7 +59,7 @@ if ($things_to_do != 0){?>
 </ul>
 <style type="text/css" media="screen">
 	#todo{
-		  background-color: #F5F6F8;
+		  background-color: white;
   border: 1px solid #d8dbe1;
   border-radius: 4px;
   box-shadow: 0px 1px 1px 0px rgba(128,138,158,0.33);
@@ -82,7 +82,7 @@ if ($things_to_do != 0){?>
 	li.todo span{
 		background: red;
 		color: white ;
-		padding: 5px 7px;
+		padding: 2px 4px;
 		border-radius: 4px;
 	}
 </style>

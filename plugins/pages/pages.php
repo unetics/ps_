@@ -8,7 +8,7 @@
 					padding: 10px;
 					margin: 0;
 		}
-		#wps_recent_posts_dw .active_page span{
+		#wps_recent_posts_dw .active_page a{
 			float: right;
 			margin-right: 10px;
 		}
@@ -29,6 +29,9 @@
                     <li class="active_page"><?= $page->post_title;?> 
                     	<a href="<?= get_edit_post_link( $page->ID ); ?>"  title="Edit Page" >
 	                    	<span class="dashicons dashicons-welcome-write-blog"></span>
+	                    </a>
+	                    <a target="_blank" href="<?= ( $page->guid ); ?>"  title="Edit Page"  >
+		                    <span class="dashicons dashicons-welcome-view-site"></span>
 	                    </a>
                     </li>
           <?php endforeach; ?>

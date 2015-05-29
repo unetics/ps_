@@ -83,29 +83,6 @@ function rebuild_callback() {
 add_action( 'wp_ajax_rebuild', 'rebuild_callback' );
 
 
-function create_ps_menu() {
-	global $wp_admin_bar;
-
-	$menu_id = 'ps_';
-	$wp_admin_bar->add_menu(array('id' => $menu_id, 'title' => 'ps_'));
-	$wp_admin_bar->add_menu(array(
-							'parent' => $menu_id, 
-							'title' => 'rebuild css', 
-							'id' => 'rebuild-css', 
-							'href' => 'javascript:void(0);', 
-							'meta' => array('onclick' => 'rebuild()')));
-	}
-add_action('admin_bar_menu', 'create_ps_menu', 2000);
-
-if ( ! function_exists( 'redux_disable_dev_mode_plugin' ) ) {
-    function redux_disable_dev_mode_plugin( $redux ) {
-        if ( $redux->args['opt_name'] != 'redux_demo' ) {
-            $redux->args['dev_mode'] = false;
-        }
-    }
-
-    add_action( 'redux/construct', 'redux_disable_dev_mode_plugin' );
-}
 
 
 
