@@ -153,6 +153,13 @@ function remove_jquery_migrate( &$scripts)
     if(!is_admin())
     {
         $scripts->remove( 'jquery');
-        $scripts->add( 'jquery', false, array( 'jquery-core' ), '1.10.2' );
+        $scripts->add( 'jquery', false, array( 'jquery-core' ), '1.10.2', true );
     }
 }
+
+function _remove_script_version( $src ){
+$parts = explode( '?', $src );
+return $parts[0];
+}
+add_filter( 'script_loader_src', '_remove_script_version', 15, 1 );
+add_filter( 'style_loader_src', '_remove_script_version', 15, 1 );
