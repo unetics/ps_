@@ -139,3 +139,8 @@ if ( ! function_exists( 'redux_disable_dev_mode_plugin' ) ) {
 
     add_action( 'redux/construct', 'redux_disable_dev_mode_plugin' );
 }
+
+
+// REMOVE WP EMOJI
+remove_action('wp_head', 'print_emoji_detection_script', 7);
+remove_action('wp_print_styles', 'print_emoji_styles');

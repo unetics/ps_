@@ -136,7 +136,7 @@ if (!class_exists('nav-options-config')) {
                         'compiler'  => 'true',
                         'readonly'	=> false,
                         'subtitle'  => 'upload a Desktop logo <a href="#">doc coming soon</a>',
-                        'default'   => array('url' => 'http://s.wordpress.org/style/images/codeispoetry.png'),
+                        'default'   => array('url' => 'http://assets.webcreationcentre.com.au/wcc-logo.png'),
                     ),
 					 
 					array(
