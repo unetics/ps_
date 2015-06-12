@@ -121,8 +121,8 @@ function mytheme_admin_bar_render() {
 			'meta' 	 => array( 'target' => '_blank', 'title' => 'view site' ),
 		) );
 		$wp_admin_bar->add_menu(array(
-			'parent' => $menu_id, 
-			'title' => '', 
+			'parent' => '', 
+			'title' => 'rebuild', 
 			'id' => 'rebuild-css', 
 			'href' => 'javascript:void(0);', 
 			'meta' => array('onclick' => 'rebuild()', 'title' => 'Rebuild CSS')));

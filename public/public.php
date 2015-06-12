@@ -72,3 +72,39 @@ add_filter('wp_nav_menu_items', 'do_shortcode'); // add shortcodes to menus
 
 // disable the admin bar
 show_admin_bar(false);
+
+/**
+ * @param $icon_value
+ * @param bool $icon_styles
+ *
+ * @return bool|string
+ */
+function ps_get_icon($icon_value, $icon_styles = false) {
+	if( empty( $icon_value ) ) return false;
+	list( $family, $icon ) = explode('-', $icon_value, 2);
+	if( empty( $family ) || empty( $icon ) ) return false;
+
+	static $widget_icon_families;
+	static $widget_icons_enqueued = array();
+	
+	if( empty($widget_icon_families) ) $widget_icon_families = apply_filters('siteorigin_widgets_icon_families', array() );
+	if( empty($widget_icon_families[$family]) || empty($widget_icon_families[$family]['icons'][$icon]) ) return false;
+	
+// 	log_me($widget_icon_families[$family]['icons'][$icon]);
+
+	if(empty($widget_icons_enqueued[$family]) && !empty($widget_icon_families[$family]['style_uri'])) {
+// 		log_me($widget_icon_families[$family]['style_uri']);
+		if( !wp_style_is( 'siteorigin-widget-icon-font-'.$family ) ) {
+			wp_enqueue_style('siteorigin-widget-icon-font-'.$family, $widget_icon_families[$family]['style_uri'] );
+		}
+		return '<i class="i-alt sow-icon-' . esc_attr($family) . '" data-sow-icon="' . $widget_icon_families[$family]['icons'][$icon] . '" ' . ( !empty($icon_styles) ? 'style="'.implode('; ', $icon_styles).'"' : '' ) . '></i> ';
+	}
+	else {
+		return false;
+	}
+
+}
+
+
+
+// padding: 0 calc((100% - 1020px)/2)
