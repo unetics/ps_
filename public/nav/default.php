@@ -3,8 +3,8 @@
 		<nav class="sm-navbar supermenu animated" role="navigation">
 			<div class="sm-container">
 				<div class="sm-navbar-header">
-					<a class="sm-navbar-brand" href="<?= home_url(); ?>">
-						<img src="<?= $nav_options['logoDesktop']['url']; ?>" />
+					<a class="desktop_logo sm-navbar-brand" href="<?= home_url(); ?>">
+						<img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" />
 					</a>
 				</div><!--.sm-navbar-header-->
 

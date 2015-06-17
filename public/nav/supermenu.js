@@ -15,6 +15,8 @@ jQuery(document).ready(function($) {
 	
     // Add Classes to <body> 
 	$body.addClass(supermenu_vars.body_class);
+	
+	
 
 	//Toggle Topmenu
 	function smToggleTopmenu() {
@@ -91,46 +93,39 @@ jQuery(document).ready(function($) {
     }
   }
    
-  //Topmenu Height Change
-   if (supermenu_vars.sm_menu_change_size == true) {
-    $(window).scroll(function() {
-      var scroll = $(window).scrollTop();
-      if (scroll >= supermenu_vars.sm_effect_triggerpoint) {
-        $supermenu.addClass('scroll-change');
-      } else {
-        $supermenu.removeClass('scroll-change');
-      }
-    });
-  }
-  
-  // Topmenu Width Change
-  if (supermenu_vars.sm_change_menu_width == true && supermenu_vars.sm_new_menu_width === 'full_width_then_container') {
-    $(window).scroll(function() {
-      var scroll = $(window).scrollTop();
-      if (scroll >= supermenu_vars.sm_effect_triggerpoint) {
-        $(".no-container").addClass('sm-container');
-      } else {
-        $(".no-container").removeClass('sm-container');
-      }
-    });
-  }
-  else if (supermenu_vars.sm_change_menu_width == true && supermenu_vars.sm_new_menu_width === 'container_then_full_width') {
-    $(window).scroll(function() {
-      var scroll = $(window).scrollTop();
-      if (scroll >= supermenu_vars.sm_effect_triggerpoint) {
-        $(".supermenu > div").addClass('no-container');
-      } else {
-        $(".supermenu > div").removeClass('no-container');
-      }
-    });
-  }
-  
-  //Topmenu Padding
-  if (supermenu_vars.sm_fixed_menu == true && supermenu_vars.sm_menu_configura_padding === 'automatic' && supermenu_vars.sm_after_fixed_menu === 'fixed_basic' && supermenu_vars.sm_visible_load == false) {
-    $body.animate({ paddingTop: 0 });
-  }
- 
+function scrollTrigger(active){
+	var Logo = $('.desktop_logo img');
+	if(active){
+		$supermenu.addClass('scroll-change');
+		Logo.fadeOut(400,function(){
+        	Logo.fadeIn(400)[0].src = supermenu_vars.desktop_logo_scroll;
+    	}); 
+// 		console.log('scrollTrigger on');
+	}else{
+		$supermenu.removeClass('scroll-change');
+		Logo.fadeOut(400,function(){
+        	Logo.fadeIn(400)[0].src = supermenu_vars.desktop_logo;
+    	});
+// 		console.log('scrollTrigger off');
+	}
+	
+}
 
-	/* Add is-social-icon class to menu item if it has icon */
-  $(".menu-item-name:has(._mi)").parent().parent().addClass('is-social-icon');
+/* Detcet scroll trigger */
+    var flag = $(window).scrollTop() > supermenu_vars.sm_effect_triggerpoint ? 1 : 2;
+    if(flag == 1){ scrollTrigger(true); }else{ scrollTrigger(false); }
+    $(window).scroll(function () {
+        var scrollTop = $(window).scrollTop();
+        if (scrollTop > supermenu_vars.sm_effect_triggerpoint && flag != 1) {
+            scrollTrigger(true);
+            flag = 1;
+        } else if (scrollTop <= supermenu_vars.sm_effect_triggerpoint && flag != 2) {
+            scrollTrigger(false);
+            flag = 2;
+        }
+    });
+  
+  
 });
+
+

@@ -113,10 +113,12 @@ if (!class_exists('nav-options-config')) {
 
                  )
             );
+            
+
 
             $this->sections[] = array(
                 'icon'      => 'el-icon-website',
-                'title'     => 'Desktop Options',
+                'title'     => 'Desktop Menu',
                 'heading' => '',
                 'fields'    => array(
 
@@ -129,7 +131,7 @@ if (!class_exists('nav-options-config')) {
 				   ),
 
                     array(
-                        'id'        => 'logoDesktop',
+                        'id'        => 'desktop_logo',
                         'type'      => 'media',
                         'url'       => true,
                         'title'     => 'Logo Desktop',
@@ -138,7 +140,7 @@ if (!class_exists('nav-options-config')) {
                         'subtitle'  => 'upload a Desktop logo <a href="#">doc coming soon</a>',
                         'default'   => array('url' => 'http://assets.webcreationcentre.com.au/wcc-logo.png'),
                     ),
-					 
+                    				 
 					array(
 					    'id'     => 'section-end',
 					    'type'   => 'section',
@@ -154,6 +156,19 @@ if (!class_exists('nav-options-config')) {
 			       'required'  => array('nav-type', '=', 1),
 				   ),
 
+                    array(
+                        'id'            => 'desktop_height',
+                        'type'          => 'slider',
+                        'title'         => 'Menu Height',
+                        'subtitle'      => 'this sets the height of menu in px',
+                        'default'       => 100,
+                        'min'           => 0,
+                        'step'          => 1,
+                        'max'           => 500,
+                        'resolution'    => 1,
+                        'display_value' => 'text',
+                        'compiler'  => true,
+                    ),
 						// Other field arrays go here.
 						array(
 	                        'id'        => 'background-colour',
@@ -164,7 +179,7 @@ if (!class_exists('nav-options-config')) {
 	                        'compiler'  => true,
 	                    ),
 	                    array(
-	                        'id'        => 'box-shadow',
+	                        'id'        => 'desktop_shadow',
 	                        'type'      => 'button_set',
 	                        'title'     => 'Shadow Type',
 // 	                        'subtitle'  => 'Select the nav type that is required',
@@ -204,8 +219,8 @@ if (!class_exists('nav-options-config')) {
 						        'active'    => $theme_options['primary-colour'], 
 						    ),
 						),
-						                    array(
-                        'id'            => 'menu-typography',
+						array(
+                        'id'            => 'desktop_typography',
                         'type'          => 'typography',
                         'title'         => 'Menu Typography',
                         'compiler'      => true,  // Use if you want to hook in your own CSS compiler
@@ -221,7 +236,7 @@ if (!class_exists('nav-options-config')) {
                         'text-align'	=> false,
                         'default'       => array(
                             'font-style'    => '700',
-                            'font-size'     => '20px',
+                            'font-size'     => '16px',
                             'line-height'   => '30px',
                             'letter-spacing' => '3px',
                             'font-weight' => '700'),
@@ -316,6 +331,162 @@ if (!class_exists('nav-options-config')) {
 					),					
 					
                 )
+            );
+            
+            
+            $this->sections[] = array(
+                'icon'      => 'el-icon-tasks',
+                'title'     => 'Descktop Scrolling Menu', 
+                'fields'    => array(
+	                array(
+                        'id'            => 'desktop_scroll_trigger',
+                        'type'          => 'slider',
+                        'title'         => 'Scroll Trigger Braekpoint',
+                        'subtitle'      => 'this sets the scroll from top in px 0px means no trigger',
+                        'default'       => 100,
+                        'min'           => 0,
+                        'step'          => 1,
+                        'max'           => 500,
+                        'resolution'    => 1,
+                        'display_value' => 'text',
+                        'compiler'  => true,
+                    ),
+                    
+                    array(
+                        'id'        => 'desktop_logo_scroll',
+                        'type'      => 'media',
+                        'url'       => true,
+                        'title'     => 'Logo Desktop scroll',
+                        'compiler'  => 'true',
+                        'readonly'	=> false,
+                        'subtitle'  => 'upload a Desktop logo <a href="#">doc coming soon</a>',
+                        'default'   => '',
+                        'required'  => array('desktop_scroll_trigger', '>=', 1),
+                    ),
+                   
+                   $fields = array(
+			       'id' => 'navbar-start',
+			       'type' => 'section',
+			       'title' => 'NavBar Style Options',
+			       'indent' => true,
+			       'required'  => array('nav-type', '=', 1),
+				   ),
+
+                    array(
+                        'id'            => 'desktop_height_scroll',
+                        'type'          => 'slider',
+                        'title'         => 'Scroll Menu Height',
+                        'subtitle'      => 'this sets the height of menu after scroll trigger in px',
+                        'default'       => 100,
+                        'min'           => 0,
+                        'step'          => 1,
+                        'max'           => 500,
+                        'resolution'    => 1,
+                        'display_value' => 'text',
+                        'compiler'  => true,
+                    ),
+						// Other field arrays go here.
+						array(
+	                        'id'        => 'desktop_background_scroll',
+	                        'type'      => 'color',
+	                        'title'     => 'Background Colour',
+	                        'default'   => 'white',
+	                        'validate'  => 'color',
+	                        'compiler'  => true,
+	                    ),
+	                    array(
+	                        'id'        => 'desktop_shadow_scroll',
+	                        'type'      => 'button_set',
+	                        'title'     => 'Shadow Type',
+// 	                        'subtitle'  => 'Select the nav type that is required',
+	                        
+	                        //Must provide key => value pairs for radio options
+	                        'options'   => array(
+		                        '0' => 'None',
+	                            '1' => 'Small', 
+	                            '2' => 'Medium', 
+	                            '3' => 'Large'
+	                        ), 
+	                        'default'   => '1',
+	                        'compiler'  => true,
+	                    ),
+					 
+					array(
+					    'id'     => 'section-end',
+					    'type'   => 'section',
+					    'indent' => false,
+					),
+					
+										$fields = array(
+			       'id' => 'menu-start',
+			       'type' => 'section',
+			       'title' => 'Menu Style Options',
+			       'indent' => true,
+			       'required'  => array('nav-type', '=', 1),
+				   ),
+						array(
+						    'id'       => 'menu-link-color',
+						    'type'     => 'link_color',
+						    'title'    => 'Menu Top Links Colour',
+						    'default'  => array(
+						        'regular'  => $theme_options['font-colour'], 
+						        'hover'    => $theme_options['primary-colour'], 
+						        'active'    => $theme_options['primary-colour'], 
+						    ),
+						),
+						array(
+                        'id'            => 'desktop_typography_scroll',
+                        'type'          => 'typography',
+                        'title'         => 'Menu Typography',
+                        'compiler'      => true,  // Use if you want to hook in your own CSS compiler
+                        'google'        => false,    // Disable google fonts. Won't work if you haven't defined your google api key
+                        'font-backup'   => false,    // Select a backup non-google font in addition to a google font
+                        'font-style'    => false, // Includes font-style and weight. Can use font-style or font-weight to declare
+                        'subsets'       => false, // Only appears if google is true and subsets not set to false
+                        'font-size'     => true,
+                        'font-family'	=> false,
+                        'line-height'   => true,
+                        'letter-spacing'=> true,  // Defaults to false
+                        'color'         => false,
+                        'text-align'	=> false,
+                        'default'       => array(
+                            'font-style'    => '700',
+                            'font-size'     => '14px',
+                            'line-height'   => '30px',
+                            'letter-spacing' => '3px',
+                            'font-weight' => '700'),
+                        'preview' => array('text' => 'ooga booga'),
+                    ),
+					 
+					array(
+					    'id'     => 'section-end',
+					    'type'   => 'section',
+					    'indent' => false,
+					),
+                    
+                    	                
+
+	                                   
+                 )
+            );
+
+            $this->sections[] = array(
+                'icon'      => 'el-icon-indent-right',
+                'title'     => 'Mobile Menu', 
+                'fields'    => array(
+	                
+
+                 )
+            );
+            
+            $this->sections[] = array(
+                'icon'      => 'el-icon-tasks',
+                'title'     => 'Mobile Scrolling Menu', 
+                'fields'    => array(
+	                
+
+
+                 )
             );
            
             $this->sections[] = array(

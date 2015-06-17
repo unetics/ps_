@@ -1,5 +1,9 @@
 <?php
-require_once ps_dir.'public/nav/nav.php';			
+function ps_get_nav() {	
+	require_once ps_dir.'public/nav/nav.php';	
+}
+add_action( 'init', 'ps_get_nav' );
+
 function ps_get_styles() {
 	$styles = array();	
 	
@@ -24,14 +28,26 @@ function ps_get_styleVars() {
 		'background_colour' 		=> $theme_options['background-colour'], 
 		'text_colour'				=> $theme_options['font-colour'], 
 		'rounding' 					=> $theme_options['rounding'], 
+
 // 		Nav Options
+		
+		// Descktop
 		'nav-background' 			=> $nav_options['background-colour'],
-		'nav-background-scroll' 	=> $nav_options['background-colour'],
+		'nav_height'				=> $nav_options['desktop_height'],
+		'desktop_shadow'			=> $nav_options['desktop_shadow'],
+		'desktop_font_size'		    => $nav_options['desktop_typography']['font-size'],
+		
+		// Descktop Scroll
+		'desktop_height_scroll'			=> $nav_options['desktop_height_scroll'],
+		'desktop_background_scroll' 	=> $nav_options['desktop_background_scroll'],
+		'desktop_shadow_scroll' 		=> $nav_options['desktop_shadow_scroll'],
+		'desktop_font_size_scroll'		=> $nav_options['desktop_typography_scroll']['font-size'],
+		
 		'menu-link-color' 			=> $nav_options['menu-link-color']['regular'],
 		'menu-link-color-hover' 	=> $nav_options['menu-link-color']['hover'],
 		'menu-link-color-active' 	=> $nav_options['menu-link-color']['active'],
-		'box-shadow'				=> $nav_options['box-shadow'],
-		'top-level-font-size'		=> $nav_options['menu-typography']['font-size'],
+// 		'box-shadow'				=> $nav_options['box-shadow'],
+		
 	);
 	return $vars;
 
@@ -104,7 +120,3 @@ function ps_get_icon($icon_value, $icon_styles = false) {
 	}
 
 }
-
-
-
-// padding: 0 calc((100% - 1020px)/2)
