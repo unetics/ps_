@@ -74,8 +74,11 @@ function make_css() {
 add_action( 'rebuild', 'make_css' );
 
 function load_css() {
-        wp_register_style( 'main_css', ps_url.'public/assets/css/main.css', false, ps_ver );
-        wp_enqueue_style( 'main_css' );
+	if (!is_readable(ps_url.'public/assets/css/main.css')) {
+       do_action ( 'rebuild' );
+    }
+    wp_register_style( 'main_css', ps_url.'public/assets/css/main.css', false, ps_ver );
+    wp_enqueue_style( 'main_css' );
 }
 add_action( 'wp_enqueue_scripts', 'load_css' );
 

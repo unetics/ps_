@@ -5,8 +5,8 @@ Description: Makes A masonary grid of blog posts.
 Author: Mitchell Bray
 Author URI: http://webcreationcentre.com.au
 */
-
-class Blog_Grid_Widget extends SiteOrigin_Widget {
+if(!class_exists('ps_Blog_Grid')) {
+class ps_Blog_Grid extends SiteOrigin_Widget {
 	function __construct() {
 		parent::__construct(
 			'ps_blog_grid',
@@ -64,8 +64,8 @@ class Blog_Grid_Widget extends SiteOrigin_Widget {
 		return 'base';
 	}
 }
-
-siteorigin_widget_register('ps_blog_grid', __FILE__, 'Blog_Grid_Widget');
+siteorigin_widget_register('ps_blog_grid', __FILE__, 'ps_Blog_Grid');
+}
 
 add_action( 'wp_ajax_nopriv_ajax_pagination', 'my_ajax_pagination' );
 add_action( 'wp_ajax_ajax_pagination', 'my_ajax_pagination' );
