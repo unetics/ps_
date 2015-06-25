@@ -58,12 +58,6 @@ class Lists_Widget extends SiteOrigin_Widget {
 	function get_template_name($instance){
 		return 'base';
 	}
-
-/*
-	function enqueue_frontend_scripts(){
-		return false;
-	}
-*/
 }
 
 siteorigin_widget_register('lists', __FILE__, 'Lists_Widget');

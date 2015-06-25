@@ -6,15 +6,11 @@ add_action( 'init', 'ps_get_nav' );
 
 function ps_get_styles() {
 	$styles = array();	
-	
 	if(has_filter('ps_add_styles')) {
 		$styles = apply_filters('ps_add_styles', $styles);
 	}
-
 	return $styles;
 }
-
-
 
 function ps_get_styleVars() {
 	global $theme_options;
@@ -30,7 +26,6 @@ function ps_get_styleVars() {
 		'rounding' 					=> $theme_options['rounding'], 
 
 // 		Nav Options
-		
 		// Descktop
 		'nav-background' 			=> $nav_options['background-colour'],
 		'nav_height'				=> $nav_options['desktop_height'],

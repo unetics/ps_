@@ -2,16 +2,10 @@ jQuery(document).ready(function($) {
 
 	//Caching Variables for performance
 	var $body						= $('body');
-	var $bodyHeight 				= $body.height();
 	var $supermenu					= $('.supermenu');
-	var $navHeight 					= $supermenu.height();
 	var $topmenuCollapseMobile		= $('#supermenu-sm-navbar-collapse-mob');
 	var $topmenuToggleMobile		= $('.visible-mobile .sm-navbar-toggle');
-	var $navbar_collapse			= $('.sm-navbar-collapse');
-	var $navbar_collapse_height		= $navbar_collapse.height();
 	var $navbar_fixed_top			= 'sm-navbar-fixed-top';
-	var $superside					= $('.superside');
-	var $superside_toggler			= $('.superside-toggler');
 	
     // Add Classes to <body> 
 	$body.addClass(supermenu_vars.body_class);
@@ -30,11 +24,11 @@ jQuery(document).ready(function($) {
 	// Topmenu Dropdowns Mobile
 	$('li.smdropdown > a > .smdropdown-togglenb').on('click', function(e) {
 		e.preventDefault();
-		$(this).closest('.smdropdown').toggleClass('open')
+		$(this).closest('.smdropdown').toggleClass('open');
 	});
 	$('li.smdropdown-submenu .smdropdown-togglenb').on('click', function(e) {
 		e.preventDefault();
-		$(this).closest('.smdropdown-submenu').toggleClass('open')
+		$(this).closest('.smdropdown-submenu').toggleClass('open');
 	});
 
 	// Toggle Search
@@ -97,14 +91,16 @@ function scrollTrigger(active){
 	var Logo = $('.desktop_logo img');
 	if(active){
 		$supermenu.addClass('scroll-change');
-		Logo.fadeOut(400,function(){
-        	Logo.fadeIn(400)[0].src = supermenu_vars.desktop_logo_scroll;
+		Logo.fadeOut(40,function(){
+			Logo.attr("src",supermenu_vars.desktop_logo_scroll);
+        	Logo.fadeIn(400);
     	}); 
 // 		console.log('scrollTrigger on');
 	}else{
 		$supermenu.removeClass('scroll-change');
-		Logo.fadeOut(400,function(){
-        	Logo.fadeIn(400)[0].src = supermenu_vars.desktop_logo;
+		Logo.fadeOut(40,function(){
+			Logo.attr("src",supermenu_vars.desktop_logo);
+        	Logo.fadeIn(400);
     	});
 // 		console.log('scrollTrigger off');
 	}
@@ -113,19 +109,15 @@ function scrollTrigger(active){
 
 /* Detcet scroll trigger */
     var flag = $(window).scrollTop() > supermenu_vars.sm_effect_triggerpoint ? 1 : 2;
-    if(flag == 1){ scrollTrigger(true); }else{ scrollTrigger(false); }
+    if(flag === 1){ scrollTrigger(true); }else{ scrollTrigger(false); }
     $(window).scroll(function () {
         var scrollTop = $(window).scrollTop();
-        if (scrollTop > supermenu_vars.sm_effect_triggerpoint && flag != 1) {
+        if (scrollTop > supermenu_vars.sm_effect_triggerpoint && flag !== 1) {
             scrollTrigger(true);
             flag = 1;
-        } else if (scrollTop <= supermenu_vars.sm_effect_triggerpoint && flag != 2) {
+        } else if (scrollTop <= supermenu_vars.sm_effect_triggerpoint && flag !== 2) {
             scrollTrigger(false);
             flag = 2;
         }
     });
-  
-  
 });
-
-

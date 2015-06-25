@@ -7,8 +7,7 @@ include_once ps_dir.'public/nav/navwalker.php';
 // =============================================================================
 function supermenu_scripts() {
 	
-	global $nav_options;
-log_me($nav_options['desktop_logo_scroll']['url']);
+  global $nav_options;
   wp_register_script( 'supermenu', plugins_url( 'supermenu-min.js', __FILE__ ), array( 'jquery' ));
   wp_localize_script( 'supermenu', 'supermenu_vars', array(
     'sm_menu_change_size'					=> true,
