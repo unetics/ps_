@@ -1,4 +1,4 @@
-<?php
+<?php /** Add dashboard widget for page links to wb backend */
 	function wps_recent_posts_dw() {
 ?>
 	<style type="text/css" media="screen">

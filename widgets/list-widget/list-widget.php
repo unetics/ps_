@@ -6,7 +6,9 @@ Author: Mitchell Bray
 Author URI: http://echoedlight.com
 */
 
-class Lists_Widget extends SiteOrigin_Widget {
+if (!class_exists('PS_Lists_Widget')) {
+
+class PS_Lists_Widget extends SiteOrigin_Widget {
 	function __construct() {
 		parent::__construct(
 			'sow-lists',
@@ -60,4 +62,6 @@ class Lists_Widget extends SiteOrigin_Widget {
 	}
 }
 
-siteorigin_widget_register('lists', __FILE__, 'Lists_Widget');
+siteorigin_widget_register('lists', __FILE__, 'PS_Lists_Widget');
+
+}

@@ -1,4 +1,4 @@
-<?php
+<?php /** Add dashboard widget for todo items to wb backend */
 	
 function add_dashboard_widget()
 {
