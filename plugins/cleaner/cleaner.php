@@ -12,7 +12,7 @@ class Cleaner {
 		}else{
 			add_action('init', array( $this, 'ps_head_cleanup')); // Clean up wp_head()
 			add_filter('request', array( $this, 'ps_request_filter')); // Fix for empty search queries redirecting to home page 
-			add_filter( 'wp_default_scripts', 'remove_jquery_migrate' ); // REMOVE WP jQuery Migrate
+			add_filter( 'wp_default_scripts', array( $this,'remove_jquery_migrate' )); // REMOVE WP jQuery Migrate
 		}
 		add_action('widgets_init', array( $this, 'ps_unregister_widgets'), 11); // unregister default widgets
 	}
@@ -70,8 +70,6 @@ class Cleaner {
 	    }
 	}	
 
-}
-
 	function mytheme_admin_bar_render() {
 	    global $wp_admin_bar;
 			// Add an option to visit the site.
@@ -94,6 +92,10 @@ class Cleaner {
 	        $scripts->remove( 'jquery');
 	        $scripts->add( 'jquery', false, array( 'jquery-core' ), '1.10.2', true );
 	}
+
+}
+
+
 
 $cleaner = new Cleaner;
 
