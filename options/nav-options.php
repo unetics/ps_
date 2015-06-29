@@ -83,7 +83,7 @@ if (!class_exists('nav-options-config')) {
                         //Must provide key => value pairs for radio options
                         'options'   => array(
                             '1' => 'Bar', 
-                            '2' => 'Sidebar', 
+/*                             '2' => 'Sidebar',  */
                             '3' => 'none'
                         ), 
                         'default'   => '1'

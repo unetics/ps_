@@ -33,12 +33,24 @@ add_action('wp_enqueue_scripts', 'supermenu_scripts');
 // BUILDING THE [SUPERMENU] SHORTCODE
 // =============================================================================
 function the_nav() { 
+	global $nav_options;
+/* 	log_me($nav_options['nav-type']); */
 	if ($nav_options['nav-type'] == 1){
 		include_once ps_dir.'public/nav/default.php';	
 		include_once ps_dir.'public/nav/mobile.php';
 	}elseif ($nav_options['nav-type'] == 2){
 		echo('sorry no sidebar yet');
 	}
+	elseif ($nav_options['nav-type'] == 3){
+		?>
+		<style type="text/css" media="screen">
+			body{
+				margin-top: 0 !important;
+			}
+		</style>
+		<?php
+	}
+	
 }
 add_shortcode( 'nav', 'nav_shortcode' ); 
 
