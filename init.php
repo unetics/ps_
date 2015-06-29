@@ -13,7 +13,7 @@
  */
  
 //  Define url vars
-define("ps_ver", '0.2.7.0');
+define("ps_ver", '1.0.0.1');
 define("ps_url", plugin_dir_url( __FILE__ ));
 define("ps_dir", plugin_dir_path( __FILE__ ));
 
