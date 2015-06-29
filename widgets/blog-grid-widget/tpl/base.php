@@ -3,7 +3,6 @@ $ajaxUrl = admin_url( 'admin-ajax.php' );
 parse_str($instance['posts'], $query);
 
 $query = siteorigin_widget_post_selector_process_query($query);
-log_me($query['posts_per_page']);
 $the_query = new WP_Query($query);?>
 
 <div id="posts" class="masonry one-col" >
@@ -20,7 +19,7 @@ $the_query = new WP_Query($query);?>
 		<div class="entry-title">
 		    <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 		</div>
-		<ul class="entry-meta clearfix">
+		<ul class="entry-meta ">
 		    <?php if ($instance['show_date']) { ?><li><?php echo get_the_date(); ?></li><?php } ?>
 		    <?php if ($instance['show_categorys']) { ?><li><?php the_category(', ');?></li><?php } ?>
 		    <?php if ($instance['show_author']) { ?><li>by <?php the_author(); ?></li><?php } ?>
@@ -37,10 +36,7 @@ $the_query = new WP_Query($query);?>
 </div>
 <a href="#" class="morePlease btn">load more</a>      
 
-
-
 <script>
-
 (function($) {
 window.page = '';
   
@@ -76,6 +72,5 @@ function getMorePosts(page) {
 	});
 }
 })(jQuery);
-
 </script>
 

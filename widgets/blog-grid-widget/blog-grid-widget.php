@@ -106,7 +106,7 @@ ob_start();
 		<div class="entry-title">
 		    <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 		</div>
-		<ul class="entry-meta clearfix">
+		<ul class="entry-meta">
 		    <?php if ($_POST['show_date']) { ?><li><?php echo get_the_date(); ?></li><?php } ?>
 		    <?php if ($_POST['show_categorys']) { ?><li><?php the_category(', ');?></li><?php } ?>
 		    <?php if ($_POST['show_author']) { ?><li>by <?php the_author(); ?></li><?php } ?>

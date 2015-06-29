@@ -33,36 +33,12 @@ add_action('wp_enqueue_scripts', 'supermenu_scripts');
 // BUILDING THE [SUPERMENU] SHORTCODE
 // =============================================================================
 function the_nav() { 
-/*
-	global $supermenu;
-	require_once( SUPERMENU_DIR.'/core/variables.php' );
-*/
-// 	if ( $topmenu_status == true ) { 
-// 		do_action('supermenu_before_topmenu');
-// 		include_once( 'default.php' );
-// 		include_once( 'mobile.php' );
+	if ($nav_options['nav-type'] == 1){
 		include_once ps_dir.'public/nav/default.php';	
 		include_once ps_dir.'public/nav/mobile.php';
-// 		echo "header";	
-// 		do_action('supermenu_after_topmenu');
-/*
+	}elseif ($nav_options['nav-type'] == 2){
+		echo('sorry no sidebar yet');
 	}
-	if ( $superside_menu == true ) {
-		do_action('supermenu_before_superside');
-		include_once( SUPERMENU_DIR.'/views/superside/'.$superside_layout.'.php' );
-		do_action('supermenu_before_superside');
-	}
-*/
-// 	include(SUPERMENU_DIR.'/views/partials/searchform.php');
 }
 add_shortcode( 'nav', 'nav_shortcode' ); 
 
-// =============================================================================
-// SUPERSIDE MENU REGISTRATION
-// =============================================================================
-/*
-add_action('wp_head','automatic_integration');
-function automatic_integration() {
-		echo do_shortcode('[nav]');
-}
-*/
