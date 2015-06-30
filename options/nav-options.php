@@ -216,8 +216,9 @@ if (!class_exists('nav-options-config')) {
 						    'default'  => array(
 						        'regular'  => $theme_options['font-colour'], 
 						        'hover'    => $theme_options['primary-colour'], 
-						        'active'    => $theme_options['primary-colour'], 
+						        'active'   => $theme_options['primary-colour'], 
 						    ),
+						    'compiler'  => true,
 						),
 						array(
                         'id'            => 'desktop_typography',
@@ -425,7 +426,7 @@ if (!class_exists('nav-options-config')) {
 			       'required'  => array('nav-type', '=', 1),
 				   ),
 						array(
-						    'id'       => 'menu-link-color',
+						    'id'       => 'menu-link-color_scroll',
 						    'type'     => 'link_color',
 						    'title'    => 'Menu Top Links Colour',
 						    'default'  => array(

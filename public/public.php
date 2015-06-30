@@ -15,8 +15,7 @@ function ps_get_styles() {
 function ps_get_styleVars() {
 	global $theme_options;
 	global $nav_options;
-// 	log_me($theme_options);
-
+		
 	$vars = array(
 // 		Theme Options
 		'primary_colour' 			=> $theme_options['primary-colour'],
@@ -31,7 +30,7 @@ function ps_get_styleVars() {
 		'nav_height'				=> $nav_options['desktop_height'],
 		'desktop_shadow'			=> $nav_options['desktop_shadow'],
 		'desktop_font_size'		    => $nav_options['desktop_typography']['font-size'],
-		
+
 		// Descktop Scroll
 		'desktop_height_scroll'			=> $nav_options['desktop_height_scroll'],
 		'desktop_background_scroll' 	=> $nav_options['desktop_background_scroll'],
