@@ -4,7 +4,7 @@
  *	Plugin Name: Pressed Core
  *	Plugin URI: http://pressedsites.com/
  *	Description: helper functions and classes for building great wordpress themes.
- *	Version: 1.0.0.2
+ *	Version: 1.0.0.3
  *	Author: Mitchell Bray
  *	Author URI: http://webcreationcentre.com.au/
  *	GitHub Plugin URI:	unetics/ps_
@@ -13,7 +13,7 @@
  */
  
 //  Define url vars
-define("ps_ver", '1.0.0.1');
+define("ps_ver", '1.0.0.3');
 define("ps_url", plugin_dir_url( __FILE__ ));
 define("ps_dir", plugin_dir_path( __FILE__ ));
 
@@ -67,18 +67,17 @@ include_once ps_dir.'plugins/keypress/keypress.php';
 include_once ps_dir.'plugins/ie/ie.php';
 include_once ps_dir.'plugins/pages/pages.php';
 
-function PS_IM_REACTIVATED() {
+/* turn any dir/filepath withhin wp_content into a url */
 
-    // Activation code here...
-    
-    function my_admin_notice() {   ?>
-    <div class="updated">
-        <p><?= 'PS_ was Updated to V'.ps_ver; ?></p>
-    </div>
-    <?php
-	    do_action ( 'rebuild' );
-	}
-	add_action( 'admin_notices', 'my_admin_notice' );
-	    
+function PS_dir_url( $path = '' ) {
+	$path = wp_normalize_path( $path );
+	$url = WP_CONTENT_URL;
+	$url = set_url_scheme( $url );
+	
+	if (substr($path, 0, strlen(WP_CONTENT_DIR)) == WP_CONTENT_DIR) {
+	    $path = substr($path, strlen(WP_CONTENT_DIR));
+	    $url .= $path;
+	} 
+
+	return apply_filters( 'dir_url', $url, $path);
 }
-register_activation_hook( __FILE__, 'PS_IM_REACTIVATED' ); //done on plugin update 

@@ -30,7 +30,7 @@
                     	<a href="<?= get_edit_post_link( $page->ID ); ?>"  title="Edit Page" >
 	                    	<span class="dashicons dashicons-welcome-write-blog"></span>
 	                    </a>
-	                    <a target="_blank" href="<?= ( $page->guid ); ?>"  title="Edit Page"  >
+	                    <a target="_blank" href="<?= ( $page->guid ); ?>"  title="View Page"  >
 		                    <span class="dashicons dashicons-welcome-view-site"></span>
 	                    </a>
                     </li>

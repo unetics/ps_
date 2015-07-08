@@ -82,7 +82,7 @@ class Cleaner {
 			) );
 			$wp_admin_bar->add_menu(array(
 				'parent' => '', 
-				'title' => 'rebuild', 
+				'title' => 'Rebuild', 
 				'id' => 'rebuild-css', 
 				'href' => 'javascript:void(0);', 
 				'meta' => array('onclick' => 'rebuild()', 'title' => 'Rebuild CSS')));

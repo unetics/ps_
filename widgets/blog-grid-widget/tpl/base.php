@@ -34,15 +34,22 @@ $the_query = new WP_Query($query);?>
 <?php endwhile; ?>
 
 </div>
-<a href="#" class="morePlease btn">load more</a>      
+<a href="#" class="morePlease btn hidden">load more</a>      
 
 <script>
 (function($) {
+	
+	$(window).load(function(){  
+		if(<?=$the_query->found_posts?> > $('.entry').length){
+				$(".morePlease").removeClass('hidden').show();
+		}
+	}); 
+	
 window.page = '';
   
 $(document).on( 'click', '.morePlease', function( event ) {
-event.preventDefault();
-getMorePosts(page);
+	event.preventDefault();
+	getMorePosts(page);
 })
 
 function getMorePosts(page) { 

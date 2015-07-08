@@ -77,7 +77,7 @@ add_action( 'admin_footer', 'rebuild_javascript' );
 
 function rebuild_callback() {
 	do_action ( 'rebuild' );
-        log_me('css compiled');
+/*         log_me('css compiled'); */
 	wp_die(); // this is required to terminate immediately and return a proper response
 }
 add_action( 'wp_ajax_rebuild', 'rebuild_callback' );
