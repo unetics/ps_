@@ -4,7 +4,7 @@
  *	Plugin Name: Pressed Core
  *	Plugin URI: http://pressedsites.com/
  *	Description: helper functions and classes for building great wordpress themes.
- *	Version: 1.0.4
+ *	Version: 0.2.9.0
  *	Author: Mitchell Bray
  *	Author URI: http://webcreationcentre.com.au/
  *	GitHub Plugin URI:	unetics/ps_
