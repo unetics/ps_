@@ -48,7 +48,7 @@ add_action( 'rebuild', 'make_admin_css' );
 
 
 function load_admin_css() {
-        wp_register_style( 'custom_wp_admin_css', ps_url.'admin/assets/css/admin.css', false, ps_ver );
+        wp_register_style( 'custom_wp_admin_css', ps_url.'admin/assets/css/admin.css', false );
         wp_enqueue_style( 'custom_wp_admin_css' );
 }
 add_action( 'admin_enqueue_scripts', 'load_admin_css' );

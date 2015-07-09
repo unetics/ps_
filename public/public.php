@@ -77,7 +77,7 @@ function load_css() {
 		log_me(ps_dir.'public/assets/css/main.css');
        do_action ( 'rebuild' );
     }
-    wp_register_style( 'main_css', ps_url.'public/assets/css/main.css', false, ps_ver );
+    wp_register_style( 'main_css', ps_url.'public/assets/css/main.css', false);
     wp_enqueue_style( 'main_css' );
 }
 add_action( 'wp_enqueue_scripts', 'load_css' );
