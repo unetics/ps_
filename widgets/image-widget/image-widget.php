@@ -21,53 +21,53 @@ class Image_Widget extends SiteOrigin_Widget {
 			array(
 				'image' => array(
 					'type' => 'media',
-					'label' => __('Image file', 'siteorigin-widgets'),
+					'label' => 'Image file',
 					'library' => 'image',
 					'fallback' => true,
 				),
 
 				'size' => array(
 					'type' => 'select',
-					'label' => __('Image size', 'siteorigin-widgets'),
+					'label' => 'Image size',
 					'options' => array(
-						'full' => __('Full', 'siteorigin-widgets'),
-						'large' => __('Large', 'siteorigin-widgets'),
-						'medium' => __('Medium', 'siteorigin-widgets'),
-						'thumb' => __('Thumbnail', 'siteorigin-widgets'),
+						'full' => 'Full',
+						'large' => 'Large', 
+						'medium' => 'Medium', 
+						'thumb' => 'Thumbnail', 
 					),
 				),
 
 				'title' => array(
 					'type' => 'text',
-					'label' => __('Title text', 'siteorigin-widgets'),
+					'label' => 'Title text',
 				),
 
 				'alt' => array(
 					'type' => 'text',
-					'label' => __('Alt text', 'siteorigin-widgets'),
+					'label' => 'Alt text',
 				),
 
 				'url' => array(
 					'type' => 'link',
-					'label' => __('Destination URL', 'siteorigin-widgets'),
+					'label' => 'Destination URL', 
 				),
 				'new_window' => array(
 					'type' => 'checkbox',
 					'default' => false,
-					'label' => __('Open in new window', 'siteorigin-widgets'),
+					'label' => 'Open in new window', 
 				),
 
 				'bound' => array(
 					'type' => 'checkbox',
 					'default' => true,
-					'label' => __('Bound', 'siteorigin-widgets'),
-					'description' => __("Make sure the image doesn't extend beyond its container.", 'siteorigin-widgets'),
+					'label' => 'Bound',
+					'description' => "Make sure the image doesn't extend beyond its container.",
 				),
 				'full_width' => array(
 					'type' => 'checkbox',
 					'default' => false,
-					'label' => __('Full Width', 'siteorigin-widgets'),
-					'description' => __("Resize image to fit its container.", 'siteorigin-widgets'),
+					'label' => 'Full Width', 
+					'description' => "Resize image to fit its container.",
 				),
 				'zoomable' => array(
 					'type' => 'checkbox',

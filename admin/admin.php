@@ -53,7 +53,11 @@ function load_admin_css() {
 }
 add_action( 'admin_enqueue_scripts', 'load_admin_css' );
 
-
+function load_admin_js(){
+	wp_register_script('chosened', ps_url.'admin/assets/js/chosen.jquery.js', false);
+	wp_enqueue_script('chosened');
+}
+add_action( 'admin_enqueue_scripts', 'load_admin_js' );
 
 function rebuild_javascript() { ?>
 	<script type="text/javascript" >
