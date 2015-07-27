@@ -1,5 +1,4 @@
 <?php
-
 class Elm_PhpErrorLog {
 	private $filename;
 
