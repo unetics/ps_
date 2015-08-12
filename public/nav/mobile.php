@@ -7,7 +7,7 @@
 			
 <!-- //Topmenu Image Logo  -->
 				<div class="sm-navbar-header">
-					<img src="<?= $nav_options['logoDesktop']['url']; ?>" />
+					<img src="<?= $nav_options['desktop_logo']['url']; ?>" />
 				</div><!--.sm-navbar-header-->
 
 				<?php 
