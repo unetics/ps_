@@ -30,6 +30,7 @@ function ps_get_styleVars() {
 		'nav_height'				=> $nav_options['desktop_height'],
 		'desktop_shadow'			=> $nav_options['desktop_shadow'],
 		'desktop_font_size'		    => $nav_options['desktop_typography']['font-size'],
+		'body_margin_top'			=> $nav_options['body_margin_top'],
 
 		// Descktop Scroll
 		'desktop_height_scroll'			=> $nav_options['desktop_height_scroll'],

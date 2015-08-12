@@ -169,6 +169,19 @@ if (!class_exists('nav-options-config')) {
                         'display_value' => 'text',
                         'compiler'  => true,
                     ),
+                    array(
+                        'id'            => 'body_margin_top',
+                        'type'          => 'slider',
+                        'title'         => 'Body Margin Top',
+                        'subtitle'      => 'this sets the height before page content in px (usually the same as menu height)',
+                        'default'       => 100,
+                        'min'           => 0,
+                        'step'          => 1,
+                        'max'           => 500,
+                        'resolution'    => 1,
+                        'display_value' => 'text',
+                        'compiler'  => true,
+                    ),
 						// Other field arrays go here.
 						array(
 	                        'id'        => 'background-colour',
